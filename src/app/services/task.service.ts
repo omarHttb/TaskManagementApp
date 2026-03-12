@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { mockTasksData } from '../data/mockTasksData';
 import { ITask } from '../models/itask';
+import { StatusOptions } from '../models/statusOptions';
+import { PriorityOptions } from '../models/priorityOptions';
 
 @Injectable({
   providedIn: 'root',
@@ -49,9 +51,48 @@ export class TaskService {
     localStorage.setItem(this.storageKey, JSON.stringify(tasks));
   }
 
-  addTask(task: ITask) {
+  AddTask(task: ITask) {
     const tasks = this.GetAllTasks();
     tasks.push(task);
     localStorage.setItem(this.storageKey, JSON.stringify(tasks));
+  }
+
+  SearchTaskByTitle(title: string) {
+    const data = localStorage.getItem(this.storageKey);
+    if (data) {
+      var filteredTasks = JSON.parse(data);
+
+      filteredTasks = filteredTasks.filter(
+        (task: ITask) => task.title === title,
+      );
+
+      return filteredTasks;
+    }
+  }
+
+  FilterTasksByStatus(status: StatusOptions) {
+    const data = localStorage.getItem(this.storageKey);
+    if (data) {
+      var filteredTasks = JSON.parse(data);
+
+      filteredTasks = filteredTasks.filter(
+        (task: ITask) => task.statusOptions === status,
+      );
+
+      return filteredTasks;
+    }
+  }
+
+  FilterTasksByPriority(priority: PriorityOptions) {
+    const data = localStorage.getItem(this.storageKey);
+    if (data) {
+      var filteredTasks = JSON.parse(data);
+
+      filteredTasks = filteredTasks.filter(
+        (task: ITask) => task.title === priority,
+      );
+
+      return filteredTasks;
+    }
   }
 }

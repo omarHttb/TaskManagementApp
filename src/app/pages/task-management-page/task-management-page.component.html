@@ -3,13 +3,13 @@
     <h1 class="welcome-text">Welcome To Task Management System App</h1>
     <div class="add-item-section">
       <h2>Click The Button to add a New Task Item!</h2>
-      <input type="button" value="Add Task" class="add-task-button">
+      <input type="button" value="Add Task" class="add-task-button" />
     </div>
   </div>
 </div>
 <div class="task-management-container">
   <div class="task-list">
-    @for (item of MockData; track $index) {
+    @for (item of PaginatedTasksData; track $index) {
       <app-task-list-item
         (click)="changeTask(item)"
         [id]="item.id"

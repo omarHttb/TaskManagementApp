@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TaskManagementPageComponent } from "./pages/task-management-page/task-management-page.component";
+import { TaskManagementPageComponent } from './pages/task-management-page/task-management-page.component';
+import { TaskService } from './services/task.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,10 @@ import { TaskManagementPageComponent } from "./pages/task-management-page/task-m
   imports: [TaskManagementPageComponent],
 })
 export class AppComponent implements OnInit {
-  
-  
+  private taskService = inject(TaskService);
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.taskService.StoreTasksToLocalStorage;
   }
   title = 'TaskManagementApp';
-
-
-
 }
