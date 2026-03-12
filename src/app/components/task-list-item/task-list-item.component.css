@@ -1,0 +1,20 @@
+.item-container {
+  display: flex;
+  margin: 20px;
+  padding: 5px 10px;
+  background-color: #1E3E62;
+  border-radius: 14px;
+  width: 20rem;
+  transition: 0.5s;
+  cursor: pointer;
+  justify-content: space-between;
+  color: white;
+}
+
+.item-container:hover {
+  background-color: rgb(41, 240, 230);
+}
+
+.item-title{
+    padding: 5px;
+}

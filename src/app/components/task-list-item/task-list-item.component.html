@@ -1,0 +1,14 @@
+<div class="item-container">
+  <div class="item-title">
+    <span>{{ id }}- </span> <span>{{ title }}</span>
+  </div>
+  <span style="color: black;"
+    [ngClass]="{
+      'badge-danger': priority === 'High',
+      'badge-yellow': priority === 'Medium',
+      'badge-green': priority === 'Low',
+    }"
+  >
+    {{ priority }}
+  </span>
+</div>

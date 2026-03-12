@@ -1,0 +1,48 @@
+<div class="header-section">
+  <div class="header-content">
+    <h1 class="welcome-text">Welcome To Task Management System App</h1>
+    <div class="add-item-section">
+      <h2>Click The Button to add a New Task Item!</h2>
+      <input type="button" value="Add Task" class="add-task-button">
+    </div>
+  </div>
+</div>
+<div class="task-management-container">
+  <div class="task-list">
+    @for (item of MockData; track $index) {
+      <app-task-list-item
+        (click)="changeTask(item)"
+        [id]="item.id"
+        [priority]="item.priority"
+        [title]="item.title"
+      ></app-task-list-item>
+    }
+    <div class="pagination">
+      <span
+        (click)="changePreviousPage(pageNumber - 1)"
+        [ngClass]="pageNumber == 1 ? '' : 'pagination-button'"
+        >{{ pageNumber - 1 == 0 ? "" : pageNumber - 1 }}</span
+      >
+      <span class="pagination-button">{{ pageNumber }}</span>
+      <span
+        (click)="changeNextPage(pageNumber + 1)"
+        [ngClass]="isLastPage() ? '' : 'pagination-button   '"
+        >{{ isLastPage() ? "" : pageNumber + 1 }}</span
+      >
+    </div>
+  </div>
+  <div class="task">
+    @if (DisplayedTask.title == "") {
+      <h1 class="empty-task-text">Choose a task to display</h1>
+    } @else {
+      <app-task
+        [title]="DisplayedTask.title"
+        [description]="DisplayedTask.description"
+        [status]="DisplayedTask.statusOptions"
+        [priority]="DisplayedTask.priority"
+        [dueDate]="DisplayedTask.dueDate"
+        [createdAt]="DisplayedTask.CreatedAt"
+      ></app-task>
+    }
+  </div>
+</div>
