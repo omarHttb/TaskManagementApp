@@ -2,9 +2,9 @@
   display: flex;
   margin: 20px;
   padding: 5px 10px;
-  background-color: #1E3E62;
+  background-color: #1e3e62;
   border-radius: 14px;
-  width: 20rem;
+  width: auto;
   transition: 0.5s;
   cursor: pointer;
   justify-content: space-between;
@@ -15,6 +15,40 @@
   background-color: rgb(41, 240, 230);
 }
 
-.item-title{
-    padding: 5px;
+.item-title {
+  padding: 5px;
+}
+
+.edit-button {
+  padding: 5px 12px;
+  background-color: rgb(120, 200, 250);
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: rgb(58, 175, 248);
+}
+
+.delete-button {
+  padding: 5px 12px;
+  background-color: hsl(348, 100%, 61%);
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: hsl(348, 94%, 50%);
+}
+
+.action-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }

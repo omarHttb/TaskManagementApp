@@ -6,10 +6,9 @@ import { TaskService } from './services/task.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  // imports: [RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [TaskManagementPageComponent],
 })
 export class AppComponent implements OnInit {
   private taskService = inject(TaskService);

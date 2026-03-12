@@ -1,9 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .task-management-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   min-height: 50vh;
+}
+
+.task-list {
+  background-color: #44444e;
+  padding: 0.5rem;
+  margin-right: 10px;
+  border-radius: 12px;
+  width: 75%;
 }
 
 .pagination {
@@ -73,22 +87,6 @@
 .add-task-button:hover {
   background-color: rgb(113, 196, 18);
 }
-
-.empty-task-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 50rem;
-  background: linear-gradient(
-    90deg,
-    rgba(42, 123, 155, 1) 0%,
-    rgba(87, 199, 133, 1) 50%,
-    rgba(237, 221, 83, 1) 100%
-  );
-  height: 15rem;
-  border-radius: 12px;
-}
-
 .welcome-text {
   background-image: linear-gradient(
     90deg,
@@ -99,3 +97,66 @@
   color: transparent;
   background-clip: text;
 }
+
+.filter-buttons {
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  background-color: #402e7a;
+  transition: 0.5s;
+  min-width: 6rem;
+}
+
+.filter-buttons:hover {
+  background-color: #69599b;
+}
+
+.filter-button-right {
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.filter-button-left {
+  border: none;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.filter-button-middle {
+  border-bottom: none;
+  border-top: none;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.filter-text {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.filtering-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-filter {
+  margin-right: 13px;
+}
+
+.filter-title-input {
+  border: none;
+  padding: 3px;
+  padding-right: 9rem;
+  border-radius: 12px;
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+

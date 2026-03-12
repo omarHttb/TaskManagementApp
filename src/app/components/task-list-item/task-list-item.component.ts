@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-list-item',
@@ -12,4 +13,22 @@ export class TaskListItemComponent {
   @Input({ required: true }) id!: number;
   @Input({ required: true }) title!: string;
   @Input({ required: true }) priority!: string;
+  @Output() emitOnDelete = new EventEmitter<void>();
+
+  private taskService = inject(TaskService);
+
+  onDelete(event: Event, itemId: number) {
+    event.stopPropagation();
+    this.taskService.RemoveTaskItem(itemId);
+    this.emitOnDelete.emit();
+  }
+
+  onEdit(event: Event) {
+    event.stopPropagation();
+    console.log('edit');
+  }
+
+  ViewTask() {
+    console.log('view task');
+  }
 }

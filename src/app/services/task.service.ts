@@ -13,7 +13,11 @@ export class TaskService {
   private storageKey = 'tasks';
 
   StoreTasksToLocalStorage() {
-    localStorage.setItem(this.storageKey, JSON.stringify(mockTasksData));
+    const data = localStorage.getItem(this.storageKey);
+
+    if (data == null) {
+      localStorage.setItem(this.storageKey, JSON.stringify(mockTasksData));
+    }
   }
 
   GetTaskItem(taskId: number) {
@@ -59,15 +63,20 @@ export class TaskService {
 
   SearchTaskByTitle(title: string) {
     const data = localStorage.getItem(this.storageKey);
-    if (data) {
-      var filteredTasks = JSON.parse(data);
 
-      filteredTasks = filteredTasks.filter(
-        (task: ITask) => task.title === title,
+    if (data) {
+      const allTasks: ITask[] = JSON.parse(data);
+
+      const searchTerm = title.trim().toLowerCase();
+
+      const filteredTasks = allTasks.filter((task: ITask) =>
+        task.title.toLowerCase().includes(searchTerm),
       );
 
       return filteredTasks;
     }
+
+    return [];
   }
 
   FilterTasksByStatus(status: StatusOptions) {
@@ -89,7 +98,7 @@ export class TaskService {
       var filteredTasks = JSON.parse(data);
 
       filteredTasks = filteredTasks.filter(
-        (task: ITask) => task.title === priority,
+        (task: ITask) => task.priority === priority,
       );
 
       return filteredTasks;

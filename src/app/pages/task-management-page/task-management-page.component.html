@@ -1,48 +1,88 @@
-<div class="header-section">
-  <div class="header-content">
-    <h1 class="welcome-text">Welcome To Task Management System App</h1>
-    <div class="add-item-section">
-      <h2>Click The Button to add a New Task Item!</h2>
-      <input type="button" value="Add Task" class="add-task-button" />
+<div class="container">
+  <div class="header-section">
+    <div class="header-content">
+      <h1 class="welcome-text">Welcome To Task Management System App</h1>
+      <div class="add-item-section">
+        <h2>Click The Button to add a New Task Item!</h2>
+        <input type="button" value="Add Task" class="add-task-button" />
+      </div>
     </div>
   </div>
-</div>
-<div class="task-management-container">
-  <div class="task-list">
-    @for (item of PaginatedTasksData; track $index) {
-      <app-task-list-item
-        (click)="changeTask(item)"
-        [id]="item.id"
-        [priority]="item.priority"
-        [title]="item.title"
-      ></app-task-list-item>
-    }
-    <div class="pagination">
-      <span
-        (click)="changePreviousPage(pageNumber - 1)"
-        [ngClass]="pageNumber == 1 ? '' : 'pagination-button'"
-        >{{ pageNumber - 1 == 0 ? "" : pageNumber - 1 }}</span
-      >
-      <span class="pagination-button">{{ pageNumber }}</span>
-      <span
-        (click)="changeNextPage(pageNumber + 1)"
-        [ngClass]="isLastPage() ? '' : 'pagination-button   '"
-        >{{ isLastPage() ? "" : pageNumber + 1 }}</span
-      >
+  <div class="task-management-container">
+    <div class="task-list">
+      <div class="filtering-container">
+        <div class="filter-options">
+          <span class="filter-text status-filter">filter by Status: </span>
+          <input
+            (click)="OnFilterStatus('To Do')"
+            type="button"
+            value="To Do"
+            class="filter-buttons filter-button-left"
+          /><input
+            (click)="OnFilterStatus('In Progress')"
+            type="button"
+            value="In Progress"
+            class="filter-buttons filter-button-middle"
+          /><input
+            (click)="OnFilterStatus('Done')"
+            type="button"
+            value="Done"
+            class="filter-buttons filter-button-right"
+          />
+        </div>
+        <div class="filter-options">
+          <span class="filter-text">filter by Priority: </span>
+          <input
+            (click)="OnFilterPriority('Low')"
+            type="button"
+            value="Low"
+            class="filter-buttons filter-button-left"
+          /><input
+            (click)="OnFilterPriority('Medium')"
+            type="button"
+            value="Medium"
+            class="filter-buttons filter-button-middle"
+          /><input
+            (click)="OnFilterPriority('High')"
+            type="button"
+            value="High"
+            class="filter-buttons filter-button-right"
+          />
+        </div>
+        <div class="filter-search">
+          <span class="filter-text">filter by title: </span>
+          <input
+            type="text"
+            value=""
+            name=""
+            id=""
+            class="filter-title-input"
+            [(ngModel)]="title"
+            (input)="OnFilterTitle(title)"
+          />
+        </div>
+      </div>
+      @for (item of PaginatedTasksData; track $index) {
+        <app-task-list-item
+          (emitOnDelete)="loadData()"
+          [id]="item.id"
+          [priority]="item.priority"
+          [title]="item.title"
+        ></app-task-list-item>
+      }
+      <div class="pagination">
+        <span
+          (click)="changePreviousPage(pageNumber - 1)"
+          [ngClass]="pageNumber == 1 ? '' : 'pagination-button'"
+          >{{ pageNumber - 1 == 0 ? "" : pageNumber - 1 }}</span
+        >
+        <span class="pagination-button">{{ pageNumber }}</span>
+        <span
+          (click)="changeNextPage(pageNumber + 1)"
+          [ngClass]="isLastPage() ? '' : 'pagination-button   '"
+          >{{ isLastPage() ? "" : pageNumber + 1 }}</span
+        >
+      </div>
     </div>
-  </div>
-  <div class="task">
-    @if (DisplayedTask.title == "") {
-      <h1 class="empty-task-text">Choose a task to display</h1>
-    } @else {
-      <app-task
-        [title]="DisplayedTask.title"
-        [description]="DisplayedTask.description"
-        [status]="DisplayedTask.statusOptions"
-        [priority]="DisplayedTask.priority"
-        [dueDate]="DisplayedTask.dueDate"
-        [createdAt]="DisplayedTask.CreatedAt"
-      ></app-task>
-    }
   </div>
 </div>
