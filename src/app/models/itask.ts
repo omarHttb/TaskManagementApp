@@ -1,5 +1,5 @@
-import { PriorityOptions } from "./priorityOptions";
-import { StatusOptions } from "./statusOptions";
+import { PriorityOptions } from './priorityOptions';
+import { StatusOptions } from './statusOptions';
 
 export interface ITask {
   id: number;

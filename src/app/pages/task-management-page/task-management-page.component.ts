@@ -7,7 +7,7 @@ import { TaskService } from '../../services/task.service';
 import { PriorityOptions } from '../../models/priorityOptions';
 import { StatusOptions } from '../../models/statusOptions';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-task-management-page',
   standalone: true,
@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class TaskManagementPageComponent implements OnInit {
   private taskService = inject(TaskService);
+  private router = inject(Router);
   AllTaskData: ITask[] = [];
   PaginatedTasksData: ITask[] = [];
 
@@ -89,5 +90,11 @@ export class TaskManagementPageComponent implements OnInit {
       this.AllTaskData = this.taskService.GetAllTasks();
       this.PaginatedTasksData = this.AllTaskData.slice(0, 4);
     }
+  }
+
+  GoToTaskPage(task: ITask) {
+    this.router.navigate(['/Task'], {
+      state: { data: task },
+    });
   }
 }
