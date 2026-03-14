@@ -4,7 +4,12 @@
       <h1 class="welcome-text">Welcome To Task Management System App</h1>
       <div class="add-item-section">
         <h2>Click The Button to add a New Task Item!</h2>
-        <input type="button" value="Add Task" class="add-task-button" />
+        <input
+          type="button"
+          value="Add Task"
+          class="add-task-button"
+          [routerLink]="['/tasks/new']"
+        />
       </div>
     </div>
   </div>

@@ -7,11 +7,11 @@ import { TaskService } from '../../services/task.service';
 import { PriorityOptions } from '../../models/priorityOptions';
 import { StatusOptions } from '../../models/statusOptions';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-task-management-page',
   standalone: true,
-  imports: [TaskListItemComponent, NgClass, FormsModule],
+  imports: [TaskListItemComponent, NgClass, FormsModule, RouterLink],
   templateUrl: './task-management-page.component.html',
   styleUrl: './task-management-page.component.css',
 })
@@ -93,8 +93,6 @@ export class TaskManagementPageComponent implements OnInit {
   }
 
   GoToTaskPage(task: ITask) {
-    this.router.navigate(['/Task'], {
-      state: { data: task },
-    });
+    this.router.navigate(['/tasks', task.id]);
   }
 }

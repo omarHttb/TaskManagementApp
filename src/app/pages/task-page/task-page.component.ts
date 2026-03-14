@@ -1,7 +1,8 @@
 import { DatePipe, NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ITask } from '../../models/itask';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-page',
@@ -10,9 +11,10 @@ import { Router } from '@angular/router';
   templateUrl: './task-page.component.html',
   styleUrl: './task-page.component.css',
 })
-export class TaskPageComponent {
-  receivedData: any;
-  Task: ITask = {
+export class TaskPageComponent implements OnInit {
+  taskId: string | null = null;
+  private taskService = inject(TaskService);
+  task: ITask = {
     id: 0,
     title: '',
     description: '',
@@ -21,10 +23,14 @@ export class TaskPageComponent {
     dueDate: new Date(),
     CreatedAt: new Date(),
   };
-  constructor(private router: Router) {
-    const navigation = this.router.getCurrentNavigation();
-    this.receivedData = navigation?.extras.state?.['data'];
-    this.Task = this.receivedData;
+
+  constructor(private route: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.taskId = params.get('id');
+    });
+
+    this.task = this.taskService.GetTaskItemById(Number(this.taskId));
   }
 
   OnDelete() {}

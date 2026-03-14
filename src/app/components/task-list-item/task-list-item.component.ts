@@ -25,7 +25,6 @@ export class TaskListItemComponent {
 
   OnEdit(event: Event) {
     event.stopPropagation();
-    console.log('edit');
   }
 
   ViewTask() {

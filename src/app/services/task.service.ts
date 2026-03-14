@@ -20,7 +20,7 @@ export class TaskService {
     }
   }
 
-  GetTaskItem(taskId: number) {
+  GetTaskItemById(taskId: number) {
     const data = localStorage.getItem(this.storageKey);
 
     if (data) {

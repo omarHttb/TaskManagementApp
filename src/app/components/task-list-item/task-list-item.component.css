@@ -8,21 +8,19 @@
   transition: 0.5s;
   cursor: pointer;
   justify-content: space-between;
-  color: white;
+  color: #e1e1e1;
 }
 
 .item-container:hover {
-  background-color: rgb(41, 240, 230);
+  background-color: rgb(34, 161, 155);
 }
 
 .item-title {
   padding: 5px;
 }
 
-
-
-.action-buttons{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
