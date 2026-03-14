@@ -19,33 +19,7 @@
   padding: 5px;
 }
 
-.edit-button {
-  padding: 5px 12px;
-  background-color: rgb(120, 200, 250);
-  border-radius: 12px;
-  border: none;
-  font-size: 1rem;
-  transition: 0.5s;
-  cursor: pointer;
-}
 
-.edit-button:hover {
-  background-color: rgb(58, 175, 248);
-}
-
-.delete-button {
-  padding: 5px 12px;
-  background-color: hsl(348, 100%, 61%);
-  border-radius: 12px;
-  border: none;
-  font-size: 1rem;
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.delete-button:hover {
-  background-color: hsl(348, 94%, 50%);
-}
 
 .action-buttons{
     display: flex;

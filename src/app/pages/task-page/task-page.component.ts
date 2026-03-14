@@ -25,7 +25,8 @@ export class TaskPageComponent {
     const navigation = this.router.getCurrentNavigation();
     this.receivedData = navigation?.extras.state?.['data'];
     this.Task = this.receivedData;
-    console.log(this.Task);
-    console.log(this.receivedData);
   }
+
+  OnDelete() {}
+  OnEdit() {}
 }

@@ -13,8 +13,9 @@
 }
 
 .task-list {
-  background-color: #44444e;
-  padding: 0.5rem;
+  border: 1px solid black;
+  background-color: #343441;
+  padding: 1rem;
   margin-right: 10px;
   border-radius: 12px;
   width: 75%;
@@ -159,4 +160,3 @@ input:focus {
   outline: none;
   box-shadow: none;
 }
-

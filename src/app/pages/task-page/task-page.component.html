@@ -1,5 +1,47 @@
 <div class="container">
-  <div class="task-container">
+  <div class="action-buttons">
+    <input
+      (click)="OnEdit()"
+      class="edit-button"
+      type="button"
+      value="EDIT"
+    />
+    <input
+      (click)="OnDelete()"
+      class="delete-button"
+      type="button"
+      value="DELETE"
+    />
+  </div>
+  <div class="box-container">
+    <h1>{{ Task.title }}</h1>
+  </div>
+  <div class="box-container description-container">
+    <h2>Description</h2>
+    <p>{{ Task.description }}</p>
+  </div>
+  <div class="box-container additional-info-container">
+    <h3>Additional information</h3>
+    <p>Status: {{ Task.statusOptions }}</p>
+    <p>
+      Priority:
+      <span
+        style="color: black"
+        [ngClass]="{
+          'badge-danger': Task.priority === 'High',
+          'badge-yellow': Task.priority === 'Medium',
+          'badge-green': Task.priority === 'Low',
+        }"
+      >
+        {{ Task.priority }}
+      </span>
+    </p>
+    <p>Due Date: {{ Task.dueDate | date: "medium" }}</p>
+    <p>Created At: {{ Task.CreatedAt | date: "medium" }}</p>
+  </div>
+</div>
+
+<!-- <div class="task-container">
     <div class="top-container-bar">
       <h1>Title: {{ Task.title }}</h1>
       <div class="Action-buttons">
@@ -24,5 +66,4 @@
     </h4>
     <h4>Due Date: {{ Task.dueDate | date: "medium" }}</h4>
     <h4>Created At: {{ Task.CreatedAt | date: "medium" }}</h4>
-  </div>
-</div>
+  </div> -->

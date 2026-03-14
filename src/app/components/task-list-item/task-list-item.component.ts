@@ -17,13 +17,13 @@ export class TaskListItemComponent {
 
   private taskService = inject(TaskService);
 
-  onDelete(event: Event, itemId: number) {
+  OnDelete(event: Event, itemId: number) {
     event.stopPropagation();
     this.taskService.RemoveTaskItem(itemId);
     this.emitOnDelete.emit();
   }
 
-  onEdit(event: Event) {
+  OnEdit(event: Event) {
     event.stopPropagation();
     console.log('edit');
   }
