@@ -36,12 +36,13 @@ textarea {
   resize: none;
 }
 
-input:hover {
+input:hover , textarea:hover {
   background-color: #252525;
   border-color: #444444;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border-color: #bb86fc;
   box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2); /* Soft glow */
@@ -96,4 +97,12 @@ input::placeholder {
   display: flex;
   justify-content: end;
   width: 100%;
+}
+
+input[type="radio"] {
+  accent-color: #a370db;
+}
+
+input[type="radio"]:active {
+  border-radius: 12px;
 }

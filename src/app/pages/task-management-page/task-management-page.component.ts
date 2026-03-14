@@ -25,10 +25,10 @@ export class TaskManagementPageComponent implements OnInit {
     id: 0,
     title: '',
     description: '',
-    statusOptions: 'To Do',
+    status: 'To Do',
     priority: 'High',
     dueDate: new Date(),
-    CreatedAt: new Date(),
+    createdAt: new Date(),
   };
   pageNumber: number = 1;
   pageSize: number = 4;

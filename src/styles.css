@@ -48,7 +48,7 @@ body {
 
 .delete-button {
   padding: 5px 12px;
-  background-color: hsl(348, 100%, 61%);
+  background-color: hsl(348, 95%, 66%);
   border-radius: 12px;
   border: none;
   font-size: 1rem;
@@ -57,13 +57,17 @@ body {
 }
 
 .delete-button:hover {
-  background-color: hsl(348, 94%, 50%);
+  background-color: hsl(348, 100%, 50%);
 }
 
 .box-container {
   padding: 1rem;
-  width: 70%;
+  width: 60%;
   border-radius: 12px;
   border: 1px solid black;
   background-color: #343441;
+}
+
+.text-danger {
+  color: red;
 }

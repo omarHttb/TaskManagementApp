@@ -18,10 +18,10 @@ export class TaskPageComponent implements OnInit {
     id: 0,
     title: '',
     description: '',
-    statusOptions: 'To Do',
+    status: 'To Do',
     priority: 'Low',
     dueDate: new Date(),
-    CreatedAt: new Date(),
+    createdAt: new Date(),
   };
 
   constructor(private route: ActivatedRoute) {}

@@ -1,11 +1,6 @@
 <div class="container">
   <div class="action-buttons">
-    <input
-      (click)="OnEdit()"
-      class="edit-button"
-      type="button"
-      value="EDIT"
-    />
+    <input (click)="OnEdit()" class="edit-button" type="button" value="EDIT" />
     <input
       (click)="OnDelete()"
       class="delete-button"
@@ -22,7 +17,7 @@
   </div>
   <div class="box-container additional-info-container">
     <h3>Additional information</h3>
-    <p>Status: {{ task.statusOptions }}</p>
+    <p>Status: {{ task.status }}</p>
     <p>
       Priority:
       <span
@@ -36,8 +31,7 @@
         {{ task.priority }}
       </span>
     </p>
-    <p>Due Date: {{ task.dueDate | date: "medium" }}</p>
-    <p>Created At: {{ task.CreatedAt | date: "medium" }}</p>
+    <p>Due Date: {{ task.dueDate | date: "mediumDate" }}</p>
+    <p>Created At: {{ task.createdAt | date: "medium" }}</p>
   </div>
 </div>
-

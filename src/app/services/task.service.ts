@@ -57,6 +57,8 @@ export class TaskService {
 
   AddTask(task: ITask) {
     const tasks = this.GetAllTasks();
+    const numberOfTasks = tasks.length;
+    task.id = numberOfTasks + 1;
     tasks.push(task);
     localStorage.setItem(this.storageKey, JSON.stringify(tasks));
   }
@@ -85,7 +87,7 @@ export class TaskService {
       var filteredTasks = JSON.parse(data);
 
       filteredTasks = filteredTasks.filter(
-        (task: ITask) => task.statusOptions === status,
+        (task: ITask) => task.status === status,
       );
 
       return filteredTasks;

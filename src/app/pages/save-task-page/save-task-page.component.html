@@ -1,79 +1,152 @@
-<div class="container">
-  <div class="box-container form-container">
-    <label for="">Title</label>
-    <input type="text" name="" placeholder="title" id="" />
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="box-container form-container">
+      <label for="">Title</label>
+      <input
+        type="text"
+        name=""
+        placeholder="title"
+        id=""
+        formControlName="title"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          taskForm.get('title')?.hasError('required') &&
+          taskForm.get('title')?.touched
+        "
+      >
+        Title is required.
+      </small>
 
-    <label for="">Description</label>
-    <textarea rows="5" name="" id=""></textarea>
+      <label for="">Description</label>
+      <textarea
+        rows="5"
+        name=""
+        id=""
+        formControlName="description"
+        placeholder="Description"
+      ></textarea>
+      <small
+        class="text-danger"
+        *ngIf="
+          taskForm.get('description')?.hasError('required') &&
+          taskForm.get('description')?.touched
+        "
+      >
+        Description is required.
+      </small>
 
-    <label for="" class="radio-label">Status</label>
-    <div class="radio-container">
-      <div>
-        <input
-          type="radio"
-          value="To Do"
-          name="status"
-          checked="checked"
-          id=""
-        />
-        <span>To Do</span>
+      <label for="" class="radio-label">Status</label>
+      <div class="radio-container">
+        <div>
+          <input
+            formControlName="status"
+            type="radio"
+            value="To Do"
+            name="status"
+            checked="checked"
+            id=""
+          />
+          <span>To Do</span>
+        </div>
+        <div>
+          <input
+            type="radio"
+            value="In Progress"
+            name="status"
+            id=""
+            formControlName="status"
+          />
+          <span>In Progress</span>
+        </div>
+        <div>
+          <input
+            type="radio"
+            value="Done"
+            name="status"
+            id=""
+            formControlName="status"
+          />
+          <span>Done</span>
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            taskForm.get('status')?.hasError('required') &&
+            taskForm.get('status')?.touched
+          "
+        >
+          Status is required.
+        </small>
       </div>
-      <div>
-        <input
-          type="radio"
-          value="In Progress"
-          name="status"
-          id=""
-        />
-        <span>In Progress</span>
+      <label for="" class="radio-label">Priority</label>
+      <div class="radio-container">
+        <div>
+          <input
+            formControlName="priority"
+            type="radio"
+            value="Low"
+            name="priority"
+            checked="checked"
+            id=""
+          />
+          <span>Low</span>
+        </div>
+        <div>
+          <input
+            type="radio"
+            value="Medium"
+            name="priority"
+            id=""
+            formControlName="priority"
+          />
+          <span>Medium</span>
+        </div>
+        <div>
+          <input
+            type="radio"
+            value="High"
+            name="priority"
+            id=""
+            formControlName="priority"
+          />
+          <span>High</span>
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            taskForm.get('priority')?.hasError('required') &&
+            taskForm.get('priority')?.touched
+          "
+        >
+          Priority is required.
+        </small>
       </div>
-      <div>
-        <input
-          type="radio"
-          value="Done"
-          name="status"
-          id=""
-        />
-        <span>Done</span>
-      </div>
-    </div>
-    <label for="" class="radio-label">Priority</label>
-    <div class="radio-container">
-      <div>
-        <input
-          type="radio"
-          value="Low"
-          name="priority"
-          checked="checked"
-          id=""
-        />
-        <span>Low</span>
-      </div>
-      <div>
-        <input
-          type="radio"
-          value="Medium"
-          name="priority"
-          id=""
-        />
-        <span>Medium</span>
-      </div>
-      <div>
-        <input
-          type="radio"
-          value="High"
-          name="priority"
-          id=""
-        />
-        <span>High</span>
-      </div>
-    </div>
 
-    <label for="">Due Date</label>
-    <input type="date" name="" id="" />
-
-    <div class="button-area">
-      <input type="button" value="Save" class="btn-save" />
+      <label for="">Due Date</label>
+      <input type="date" name="" id="" formControlName="dueDate" />
+      <small
+        class="text-danger"
+        *ngIf="
+          taskForm.get('dueDate')?.hasError('required') &&
+          taskForm.get('dueDate')?.touched
+        "
+      >
+        Due Date is required.
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="
+          taskForm.get('dueDate')?.hasError('notFuture') &&
+          taskForm.get('dueDate')?.dirty
+        "
+      >
+        The date must be in the future
+      </small>
+      <div class="button-area">
+        <input type="submit" value="Save" class="btn-save" />
+      </div>
     </div>
   </div>
-</div>
+</form>
