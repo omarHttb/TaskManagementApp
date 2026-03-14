@@ -86,7 +86,6 @@ textarea {
 
 input[type="text"]:hover,
 input[type="date"]:hover,
-:hover,
 textarea:hover {
   background-color: #252525;
   border-color: #444444;
