@@ -16,6 +16,7 @@
 
 label {
   margin-top: 10px;
+  font-weight: bold;
 }
 
 input {
@@ -36,7 +37,8 @@ textarea {
   resize: none;
 }
 
-input:hover , textarea:hover {
+input:hover,
+textarea:hover {
   background-color: #252525;
   border-color: #444444;
 }

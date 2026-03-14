@@ -14,6 +14,7 @@ import { TaskService } from '../../services/task.service';
 export class TaskPageComponent implements OnInit {
   taskId: string | null = null;
   private taskService = inject(TaskService);
+  private router = inject(Router);
   task: ITask = {
     id: 0,
     title: '',
@@ -33,6 +34,19 @@ export class TaskPageComponent implements OnInit {
     this.task = this.taskService.GetTaskItemById(Number(this.taskId));
   }
 
-  OnDelete() {}
-  OnEdit() {}
+  OnDelete() {
+    const isConfirmed: boolean = confirm(
+      'Are you sure you want to delete this task?',
+    );
+
+    if (isConfirmed) {
+      this.taskService.RemoveTaskItem(Number(this.taskId));
+      this.router.navigate(['/tasks']);
+    } else {
+      return;
+    }
+  }
+  OnEdit() {
+    this.router.navigate(['/tasks/edit', this.taskId]);
+  }
 }

@@ -82,7 +82,7 @@
           [ngClass]="pageNumber == 1 ? '' : 'pagination-button'"
           >{{ pageNumber - 1 == 0 ? "" : pageNumber - 1 }}</span
         >
-        <span class="pagination-button">{{ pageNumber }}</span>
+        <span class="pagination-button active-page">{{ pageNumber }}</span>
         <span
           (click)="changeNextPage(pageNumber + 1)"
           [ngClass]="isLastPage() ? '' : 'pagination-button   '"

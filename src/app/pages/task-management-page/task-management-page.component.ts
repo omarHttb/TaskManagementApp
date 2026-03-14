@@ -95,4 +95,6 @@ export class TaskManagementPageComponent implements OnInit {
   GoToTaskPage(task: ITask) {
     this.router.navigate(['/tasks', task.id]);
   }
+
+
 }
