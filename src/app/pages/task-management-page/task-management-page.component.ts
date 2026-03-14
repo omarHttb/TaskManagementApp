@@ -96,5 +96,8 @@ export class TaskManagementPageComponent implements OnInit {
     this.router.navigate(['/tasks', task.id]);
   }
 
-
+  ResetFilter() {
+    this.loadData();
+    this.title = '';
+  }
 }

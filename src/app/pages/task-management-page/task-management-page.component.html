@@ -1,6 +1,10 @@
 <div class="container">
   <div class="header-section">
     <div class="header-content">
+      <div class="translate-content">
+        <input type="button" value="En" />
+        <input type="button" value="Ar" />
+      </div>
       <h1 class="welcome-text">Welcome To Task Management System App</h1>
       <div class="add-item-section">
         <h2>Click The Button to add a New Task Item!</h2>
@@ -55,15 +59,23 @@
           />
         </div>
         <div class="filter-search">
-          <span class="filter-text">filter by title: </span>
+          <div>
+            <span class="filter-text">filter by title: </span>
+            <input
+              type="text"
+              value=""
+              name=""
+              id=""
+              class="filter-title-input"
+              [(ngModel)]="title"
+              (input)="OnFilterTitle(title)"
+            />
+          </div>
           <input
-            type="text"
-            value=""
-            name=""
-            id=""
-            class="filter-title-input"
-            [(ngModel)]="title"
-            (input)="OnFilterTitle(title)"
+            type="button"
+            class="reset-filter-btn"
+            value="Reset Filters"
+            (click)="ResetFilter()"
           />
         </div>
       </div>

@@ -26,29 +26,6 @@ textarea {
   max-width: 50%;
 }
 
-input,
-textarea {
-  background-color: #1e1e1e;
-  border: 1px solid #333333;
-  color: #e1e1e1;
-  padding: 12px 16px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  resize: none;
-}
-
-input:hover,
-textarea:hover {
-  background-color: #252525;
-  border-color: #444444;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #bb86fc;
-  box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2); /* Soft glow */
-}
 
 input::placeholder {
   color: #757575;

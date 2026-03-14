@@ -19,7 +19,7 @@
   padding: 1rem;
   margin-right: 10px;
   border-radius: 12px;
-  width: 75%;
+  width: 60%;
 }
 
 .pagination {
@@ -117,12 +117,16 @@
   border: none;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .filter-button-left {
   border: none;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .filter-button-middle {
@@ -130,6 +134,10 @@
   border-top: none;
   border-right: 1px solid black;
   border-left: 1px solid black;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .filter-text {
@@ -150,10 +158,8 @@
 }
 
 .filter-title-input {
-  border: none;
-  padding: 3px;
+  padding: 8px;
   padding-right: 9rem;
-  border-radius: 12px;
   padding-left: 10px;
 }
 
@@ -164,4 +170,33 @@ input:focus {
 
 .active-page {
   background-color: rgb(109, 142, 253);
+}
+
+.filter-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reset-filter-btn {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(
+    45deg,
+    rgba(238, 174, 202, 1),
+    rgb(110, 173, 246)
+  );
+  font-weight: bold;
+  font-size: 16px;
+  background-size: 200% 200%;
+  transition: background-position 0.5s;
+}
+
+.reset-filter-btn:hover {
+  background-position: right center;
+}
+
+.reset-filter-btn:active {
+  background-position: bottom left;
 }
