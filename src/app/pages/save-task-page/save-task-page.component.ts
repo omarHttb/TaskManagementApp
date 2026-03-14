@@ -38,6 +38,7 @@ export class SaveTaskPageComponent {
     if (this.taskForm.invalid) {
       this.taskForm.markAllAsTouched();
     } else {
+      this.saveTask();
     }
   }
 
