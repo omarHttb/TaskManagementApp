@@ -1,23 +1,31 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { mockTasksData } from '../../data/mockTasksData';
 import { TaskListItemComponent } from '../../components/task-list-item/task-list-item.component';
-import { NgClass } from '@angular/common';
+import { DOCUMENT, NgClass } from '@angular/common';
 import { ITask } from '../../models/itask';
 import { TaskService } from '../../services/task.service';
 import { PriorityOptions } from '../../models/priorityOptions';
 import { StatusOptions } from '../../models/statusOptions';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-task-management-page',
   standalone: true,
-  imports: [TaskListItemComponent, NgClass, FormsModule, RouterLink],
+  imports: [
+    TaskListItemComponent,
+    NgClass,
+    FormsModule,
+    RouterLink,
+    TranslateModule,
+  ],
   templateUrl: './task-management-page.component.html',
   styleUrl: './task-management-page.component.css',
 })
 export class TaskManagementPageComponent implements OnInit {
   private taskService = inject(TaskService);
   private router = inject(Router);
+  private translate = inject(TranslateService);
   AllTaskData: ITask[] = [];
   PaginatedTasksData: ITask[] = [];
 
@@ -34,7 +42,7 @@ export class TaskManagementPageComponent implements OnInit {
   pageSize: number = 4;
   title: string = '';
 
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -99,5 +107,15 @@ export class TaskManagementPageComponent implements OnInit {
   ResetFilter() {
     this.loadData();
     this.title = '';
+  }
+
+  TranslateApp(language: string) {
+    this.translate.use(language);
+    const htmlTag = this.document.getElementsByTagName(
+      'html',
+    )[0] as HTMLHtmlElement;
+    htmlTag.dir = language === 'ar' ? 'rtl' : 'ltr';
+
+    htmlTag.lang = language;
   }
 }

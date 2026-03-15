@@ -129,6 +129,20 @@
   border-bottom-right-radius: 0px;
 }
 
+:host-context([dir="rtl"]) .filter-button-right {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+:host-context([dir="rtl"]) .filter-button-left {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
 .filter-button-middle {
   border-bottom: none;
   border-top: none;
@@ -199,4 +213,21 @@ input:focus {
 
 .reset-filter-btn:active {
   background-position: bottom left;
+}
+
+.translate-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.translate-button {
+  padding: 5px 20px;
+  background-color: #402e7a;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.translate-button:hover {
+  background-color: #594e7a;
 }

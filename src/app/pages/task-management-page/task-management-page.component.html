@@ -1,13 +1,23 @@
 <div class="container">
   <div class="header-section">
     <div class="header-content">
-      <div class="translate-content">
-        <input type="button" value="En" />
-        <input type="button" value="Ar" />
+      <div class="translate-buttons">
+        <input
+          type="button"
+          class="translate-button"
+          value="En"
+          (click)="TranslateApp('en')"
+        />
+        <input
+          type="button"
+          class="translate-button"
+          value="Ar"
+          (click)="TranslateApp('ar')"
+        />
       </div>
-      <h1 class="welcome-text">Welcome To Task Management System App</h1>
+      <h1 class="welcome-text">{{ "WELCOME" | translate }}</h1>
       <div class="add-item-section">
-        <h2>Click The Button to add a New Task Item!</h2>
+        <h2>{{ "ADD_TASK_BUTTON" | translate }}</h2>
         <input
           type="button"
           value="Add Task"
