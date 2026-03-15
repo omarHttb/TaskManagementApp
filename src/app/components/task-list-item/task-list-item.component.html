@@ -14,6 +14,12 @@
       {{ priority }}
     </span>
     <input
+      (click)="MarkAsDone($event)"
+      class="done-button"
+      type="button"
+      value="Mark As Done"
+    />
+    <input
       (click)="OnEdit($event)"
       class="edit-button"
       type="button"

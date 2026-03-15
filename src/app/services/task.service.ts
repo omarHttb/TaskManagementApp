@@ -48,6 +48,17 @@ export class TaskService {
     }
   }
 
+  MarkTaskAsDone(updatedTask: ITask): void {
+    const tasks = this.GetAllTasks();
+
+    const index = tasks.findIndex((task: ITask) => task.id === updatedTask.id);
+
+    if (index !== -1) {
+      tasks[index] = updatedTask;
+      localStorage.setItem(this.storageKey, JSON.stringify(tasks));
+    }
+  }
+
   RemoveTaskItem(taskId: number) {
     const tasks = this.GetAllTasks().filter(
       (task: ITask) => task.id !== taskId,

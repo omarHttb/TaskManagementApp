@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TaskService } from '../../services/task.service';
 import { Router } from '@angular/router';
+import { ITask } from '../../models/itask';
 
 @Component({
   selector: 'app-task-list-item',
@@ -18,6 +19,15 @@ export class TaskListItemComponent {
 
   private router = inject(Router);
   private taskService = inject(TaskService);
+  Task: ITask = {
+    id: 0,
+    title: '',
+    description: '',
+    status: 'To Do',
+    priority: 'Low',
+    dueDate: new Date(),
+    createdAt: new Date(),
+  };
 
   OnDelete(event: Event, itemId: number) {
     event.stopPropagation();
@@ -33,7 +43,16 @@ export class TaskListItemComponent {
 
     this.emitOnDelete.emit();
   }
+  MarkAsDone(event: Event) {
+    event.stopPropagation();
+    this.Task = this.taskService.GetTaskItemById(this.id);
 
+    this.Task.status = 'Done';
+
+    this.taskService.MarkTaskAsDone(this.Task);
+
+    alert('Task marked as done');
+  }
   OnEdit(event: Event) {
     this.router.navigate(['/tasks/edit', this.id]);
     event.stopPropagation();

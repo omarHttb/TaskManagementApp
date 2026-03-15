@@ -42,6 +42,19 @@ body {
   cursor: pointer;
 }
 
+.done-button {
+  padding: 5px 12px;
+  background-color: #2a9244;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.done-button:hover {
+  background-color: #41db68;
+}
 .edit-button:hover {
   background-color: #341efb;
 }
