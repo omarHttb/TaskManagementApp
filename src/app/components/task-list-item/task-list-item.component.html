@@ -17,7 +17,8 @@
       (click)="MarkAsDone($event)"
       class="done-button"
       type="button"
-      value="Mark As Done"
+      [value]="status == 'Done' ? 'Task is Done' : 'Mark Task As Done'"
+      [disabled]="status == 'Done'"
     />
     <input
       (click)="OnEdit($event)"

@@ -15,6 +15,7 @@ export class TaskListItemComponent {
   @Input({ required: true }) id!: number;
   @Input({ required: true }) title!: string;
   @Input({ required: true }) priority!: string;
+  @Input({ required: true }) status!: string;
   @Output() emitOnDelete = new EventEmitter<void>();
 
   private router = inject(Router);
